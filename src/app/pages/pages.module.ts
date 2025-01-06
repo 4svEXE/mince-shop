@@ -10,6 +10,7 @@ import { IframeSectionComponent } from '../shared/components/iframe-section/ifra
 import { MyServicesComponent } from "../shared/components/my-services/my-services.component";
 import { ContactsComponent } from '../shared/components/contacts/contact-form.component';
 import { MeComponent } from './me/me.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MeComponent } from './me/me.component';
     MatExpansionModule,
     IframeSectionComponent,
     ContactsComponent,
-    MyServicesComponent
+    MyServicesComponent,
+    AuthModule
 ],
 })
 export class PagesModule {}

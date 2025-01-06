@@ -7,6 +7,7 @@ import { MeComponent } from './me/me.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'me', component: MeComponent }
+
 ];
 
 @NgModule({
