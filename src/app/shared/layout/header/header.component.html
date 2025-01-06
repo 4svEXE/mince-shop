@@ -24,17 +24,8 @@
     <div class="flex gap-3 text-white ">
         <span>корзина</span>
         <span>бажане</span>
-        <span>акаунт</span>
 
-
-        <!-- todo винести логіку в фічу аутентифікації -->
-        @if(authService.currentUserSig()) {
-          <a (click)="authService.logout()">logout</a>
-          <a routerLink="cabinet">cabinet</a>
-        } @else {
-          <a routerLink="login">login</a>
-          <a routerLink="register">register</a>
-        }
+        <app-user-menu />
 
     </div>
   </div>

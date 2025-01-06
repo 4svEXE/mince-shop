@@ -1,4 +1,3 @@
-import { AuthService } from './../../../pages/auth/services/auth.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
@@ -9,11 +8,12 @@ import {
 } from '../../../core/services/svg.service';
 import { ModalComponent } from '../modal/modal.component';
 import { ModalService } from '../../../core/services/modal.service';
+import { UserMenuComponent } from '../../../pages/auth/components/user-menu/user-menu.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, NavigationComponent, RouterModule, ModalComponent],
+  imports: [CommonModule, NavigationComponent, RouterModule, ModalComponent, UserMenuComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -24,7 +24,6 @@ export class HeaderComponent {
   constructor(
     private SVG: SvgService,
     public modalService: ModalService,
-    public authService: AuthService
   ) {
     this.svg = this.SVG.loadSvg();
   }
