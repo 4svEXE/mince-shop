@@ -1,0 +1,47 @@
+@use 'variables'as *;
+
+
+.form-group {
+  margin-bottom: $spacing-large;
+
+  label {
+    display: block;
+    font-size: $font-size-small;
+    color: $dark-gray;
+    margin-bottom: $spacing-small;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: $spacing-small $spacing-medium;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    font-size: $font-size-base;
+    outline: none;
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 2px $focus-shadow-color;
+    }
+  }
+
+  .error {
+    color: red;
+    font-size: 0.875rem;
+  }
+
+  button {
+
+    &:disabled {
+      background-color: #ccc;
+    }
+  }
+}

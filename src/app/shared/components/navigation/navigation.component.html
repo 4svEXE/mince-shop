@@ -1,0 +1,13 @@
+<div class="flex flex-col md:flex-row gap-4">
+  <nav [ngClass]="getNavClassList()">
+    <a
+      *ngFor="let route of routes"
+      class="link-button"
+      routerLinkActive="active"
+    >
+      <span class="cursor-pointer" [routerLink]="route.path">
+        {{ route.label }}
+      </span>
+    </a>
+  </nav>
+</div>

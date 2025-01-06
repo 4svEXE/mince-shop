@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+
+@import "app/shared/scss/index";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}

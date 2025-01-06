@@ -1,0 +1,201 @@
+@use 'variables'as *;
+
+@mixin button-base {
+  font-family: $font-family-base;
+  font-size: $font-size-small;
+  font-weight: 500;
+  line-height: 1.75;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02857em;
+  padding: $spacing-medium $spacing-large;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 260px;
+
+  // display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  @media (max-width: $media-tablet) {
+    padding: $spacing-small $spacing-medium;
+    max-width: inherit;
+  }
+}
+
+@mixin button-variant($background, $hover, $disabled, $text) {
+  background-color: $background;
+  color: $text;
+
+  &:hover {
+    background-color: $hover;
+  }
+
+  &:disabled {
+    background-color: $disabled;
+    color: $text;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($background, 0.3);
+    outline: none;
+  }
+}
+
+.primary-button {
+  @include button-base;
+  @include button-variant($primary-color, $primary-hover, $primary-disabled, $button-text-color);
+}
+
+.secondary-button {
+  @include button-base;
+  @include button-variant($secondary-color, $secondary-hover, $secondary-disabled, $text-secondary-color);
+}
+
+.outline-button {
+  @include button-base;
+  background-color: transparent;
+  border: 1px solid $primary-color;
+  color: $dark-gray;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+  }
+
+  &:disabled {
+    border-color: $primary-disabled;
+    color: $primary-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.active-button {
+  @include button-base;
+  @include button-variant(#cc0000, #f00, $primary-disabled, $button-text-color);
+  border: 1px solid $button-text-color;
+
+  &.small {
+    padding: 12px 24px;
+    width: auto;
+    line-height: normal;
+  }
+}
+
+
+.link-button {
+  font-family: $font-family-body;
+
+  position: relative;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 4px;
+
+  color: $text-color;
+
+  .dark & {
+    color: #fff;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    border-radius: 1px;
+    transition: .2s width;
+
+    background: $text-color;
+
+    .dark & {
+      background: #fff;
+    }
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &.active {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.owl-nav {
+  max-width: 400px;
+  display: flex;
+  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin: auto;
+  margin-top: 40px;
+
+  @media (max-width: $media-tablet) {
+    margin-top: 20px;
+  }
+}
+
+.owl-prev,
+.owl-next {
+  @include button-base;
+  flex: 1;
+  background: $primary-color !important;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.owl-prev {
+  border-radius: 5px 0 0 5px;
+}
+
+.owl-next {
+  border-radius: 0 5px 5px 0;
+}
+
+.primary-button{
+overflow: hidden;
+position: relative;
+transition: .3s;
+}
+.primary-button:hover b{
+  margin-left: 4px;
+  transition: .3s;
+}
+
+.primary-button:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  transform: translateX(-100%);
+  animation: blink 4s linear 1s infinite;
+  transition: transform .4s ease-in-out;
+  background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
+}
+
+@keyframes blink {
+  90%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
