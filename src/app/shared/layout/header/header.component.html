@@ -26,8 +26,16 @@
         <span>бажане</span>
         <span>акаунт</span>
 
-        <a routerLink="login">login</a>
-        <a routerLink="register">register</a>
+
+        <!-- todo винести логіку в фічу аутентифікації -->
+        @if(authService.currentUserSig()) {
+          <a (click)="authService.logout()">logout</a>
+          <a routerLink="cabinet">cabinet</a>
+        } @else {
+          <a routerLink="login">login</a>
+          <a routerLink="register">register</a>
+        }
+
     </div>
   </div>
 

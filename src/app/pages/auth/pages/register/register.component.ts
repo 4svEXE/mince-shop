@@ -1,3 +1,4 @@
+import { AuthService } from '../../services/auth.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -10,7 +11,7 @@ export class RegisterComponent {
   registerForm: FormGroup;
   isLoading = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.registerForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -30,13 +31,18 @@ export class RegisterComponent {
       return;
     }
     this.isLoading = true;
-    const { username, email, password } = this.registerForm.value;
-    console.log('Registering with:', username, email, password);
 
-    // Імітація затримки
-    setTimeout(() => {
-      this.isLoading = false;
-      alert('Registration successful!');
-    }, 2000);
+    const { username, email, password } = this.registerForm.getRawValue();
+
+    this.authService.register(username, email, password).subscribe(
+      (response) => {
+        console.log('Registration successful:', response);
+        this.isLoading = false;
+      },
+      (error) => {
+        console.error('Registration failed:', error);
+        this.isLoading = false;
+      }
+    );
   }
 }

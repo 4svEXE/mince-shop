@@ -4,11 +4,9 @@ import { AppComponent } from './app.component';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 
-export const appConfig = {
+// Bootstrap the Angular application
+bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes), // Setup routing
-  ]
-};
-
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+    provideRouter(routes),
+  ],
+}).catch((err) => console.error('Bootstrap error:', err));

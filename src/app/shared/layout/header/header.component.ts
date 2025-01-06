@@ -1,9 +1,13 @@
+import { AuthService } from './../../../pages/auth/services/auth.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavigationComponent } from '../../components/navigation/navigation.component';
-import { SvgIconsInterface, SvgService } from '../../../core/services/svg.service';
-import { ModalComponent } from "../modal/modal.component";
+import {
+  SvgIconsInterface,
+  SvgService,
+} from '../../../core/services/svg.service';
+import { ModalComponent } from '../modal/modal.component';
 import { ModalService } from '../../../core/services/modal.service';
 
 @Component({
@@ -11,14 +15,17 @@ import { ModalService } from '../../../core/services/modal.service';
   standalone: true,
   imports: [CommonModule, NavigationComponent, RouterModule, ModalComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   isMobileMenuOpen = false;
   svg!: SvgIconsInterface;
 
-
-  constructor(private SVG:SvgService, public modalService: ModalService) {
+  constructor(
+    private SVG: SvgService,
+    public modalService: ModalService,
+    public authService: AuthService
+  ) {
     this.svg = this.SVG.loadSvg();
   }
 

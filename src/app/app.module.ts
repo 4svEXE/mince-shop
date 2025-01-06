@@ -18,6 +18,7 @@ import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ModalComponent } from './shared/layout/modal/modal.component';
+import { FirebaseModule } from './firebase.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { ModalComponent } from './shared/layout/modal/modal.component';
     RouterModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
     AngularSvgIconModule.forRoot(),
+    FirebaseModule,
     PagesModule,
     ScullyLibModule,
     BrowserAnimationsModule,

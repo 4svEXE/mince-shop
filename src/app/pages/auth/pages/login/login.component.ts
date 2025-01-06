@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   isLoading = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -23,12 +24,16 @@ export class LoginComponent {
     }
     this.isLoading = true;
     const { email, password } = this.loginForm.value;
-    console.log('Logging in with:', email, password);
 
-    // Імітація затримки
-    setTimeout(() => {
-      this.isLoading = false;
-      alert('Login successful!');
-    }, 2000);
+    this.authService.login(email, password).subscribe({
+      next: () => {
+        this.isLoading = false;
+        alert('Login successful!');
+      },
+      error: (error) => {
+        this.isLoading = false;
+        console.error('Login error:', error);
+      },
+    });
   }
 }

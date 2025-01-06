@@ -12,6 +12,7 @@ section {
 
   &.page{
     margin-top: $header-height;
+    min-height: 100dvh;
   }
 
   .dark & {
