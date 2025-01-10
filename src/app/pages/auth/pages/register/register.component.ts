@@ -45,4 +45,17 @@ export class RegisterComponent {
       }
     );
   }
+
+  registerWithGoogle(){
+    this.authService.registerWithGoogle().subscribe(
+      (response) => {
+        console.log('Registration successful:', response);
+        this.isLoading = false;
+      },
+      (error) => {
+        console.error('Registration failed:', error);
+        this.isLoading = false;
+      }
+    );
+  }
 }

@@ -36,4 +36,15 @@ export class LoginComponent {
       },
     });
   }
+
+  loginWithGoogle() {
+    this.authService.loginWithGoogle().subscribe({
+      next: () => {
+        alert('Login successful!');
+      },
+      error: (error) => {
+        console.error('Login error:', error);
+      },
+    });
+  }
 }
