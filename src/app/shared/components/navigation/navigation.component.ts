@@ -1,6 +1,7 @@
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Routes } from '../../../core/variables/Routes';
 
 @Component({
   selector: 'app-navigation',
@@ -13,6 +14,7 @@ export class NavigationComponent {
   @Input() isHomeNav = true;
   @Input() navClass = '';
   navMainClass = ' flex items-center gap-8 ';
+  routes = Routes;
 
   constructor(private viewportScroller: ViewportScroller) {}
 
@@ -23,10 +25,4 @@ export class NavigationComponent {
   getNavClassList() {
     return this.navClass ? this.navMainClass + this.navClass : this.navMainClass;
   }
-
-  routes = [
-    { path: 'ui-examples', label: 'ui-examples' },
-    { path: 'home', label: 'Головна' },
-    { path: 'me', label: 'Про мене' },
-  ];
 }

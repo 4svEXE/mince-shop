@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IframeSectionComponent } from './iframe-section.component';
+import { ProductShowcaseComponent } from './product-showcase.component';
 
-describe('IframeSectionComponent', () => {
-  let component: IframeSectionComponent;
-  let fixture: ComponentFixture<IframeSectionComponent>;
+describe('ProductShowcaseComponent', () => {
+  let component: ProductShowcaseComponent;
+  let fixture: ComponentFixture<ProductShowcaseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IframeSectionComponent]
+      imports: [ProductShowcaseComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(IframeSectionComponent);
+    fixture = TestBed.createComponent(ProductShowcaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

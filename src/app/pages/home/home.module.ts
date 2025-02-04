@@ -9,6 +9,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ContactsComponent } from '../../shared/components/contacts/contact-form.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { RouterModule } from '@angular/router';
+import { MarqueeComponent } from '../../shared/layout/marquee/marquee.component';
+import { ProductShowcaseComponent } from './components/product-showcase/product-showcase.component';
 
 @NgModule({
   declarations: [HomeComponent, HiroComponent, ReviewsComponent],
@@ -20,6 +22,8 @@ import { RouterModule } from '@angular/router';
     CarouselModule,
     MyServicesComponent,
     ContactsComponent,
+    MarqueeComponent,
+    ProductShowcaseComponent
   ],
   exports: [],
   schemas: [],

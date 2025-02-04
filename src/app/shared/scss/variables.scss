@@ -1,3 +1,5 @@
+@use "./fonts" as *;
+
 // Colors
 $primary-color: #26663B; // Зелений
 $primary-hover: lighten($primary-color, 10%);
@@ -21,9 +23,8 @@ $header-height: 56px;
 $border-radius: 20px;
 
 // Typography
-$font-family-headings: 'Playfair Display', serif; // Для заголовків
-$font-family-body: 'Jura', sans-serif; // Для основного тексту
-$font-family-base: 'Jura', sans-serif; // Основний шрифт
+$font-family-headings: "Press Start 2P", "Courier New", monospace; // Заголовки
+$font-family-base: "Trebuchet MS", Arial, sans-serif; // Для основного тексту
 $font-size-small: 0.875rem;
 $font-size-base: 1rem;
 
@@ -44,7 +45,3 @@ $media-tablet: 832px;
 $media-tablet-small: 672px;
 $media-mobile: 480px;
 $media-mobile-small: 336px;
-
-// Fonts import
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@400&display=swap');

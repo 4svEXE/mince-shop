@@ -9,8 +9,7 @@
     "seo:build": "ng build --configuration production && npx scully --scanRoutes --project mince-shop",
     "seo:serve": "npm run seo:build && npx scully serve --project mince-shop",
     "deploy": "npx angular-cli-ghpages --dir=dist/static",
-    "deploy:ftp": "node deploy.js",
-    "test": "ng test"
+    "deploy:ftp": "node deploy.js"
   },
   "private": true,
   "dependencies": {
